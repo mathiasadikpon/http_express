@@ -8,5 +8,8 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "Node HTTP & EXPRESS Module Example"
+  "description": "Node HTTP & EXPRESS Module Example",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
