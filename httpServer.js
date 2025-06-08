@@ -6,6 +6,7 @@ const port = 3000;
 const hostName = "localhost";
 
 const server = http.createServer((req, res) => {
+  console.log(`Request for ${fileUrl} received.`);
   let fileUrl = req.url;
   if (fileUrl === "/") {
     fileUrl = "/index.html";
@@ -25,21 +26,24 @@ const server = http.createServer((req, res) => {
       res.end("<html><body><h1>Error 404: File not found</h1></body></html>");
       return;
     }
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
-        res.statusCode = 500;
-        res.setHeader("Content-Type", "text/html");
-        res.end(
-          "<html><body><h1>Error 500: Internal Server Error</h1></body></html>"
-        );
-        return;
-      }
-      res.statusCode = 200;
-      res.setHeader("Content-Type", "text/html");
-      res.end(data);
-    });
+    // fs.readFile(filePath, (err, data) => {
+    //   if (err) {
+    //     res.statusCode = 500;
+    //     res.setHeader("Content-Type", "text/html");
+    //     res.end(
+    //       "<html><body><h1>Error 500: Internal Server Error</h1></body></html>"
+    //     );
+    //     return;
+    //   }
+    //   res.statusCode = 200;
+    //   res.setHeader("Content-Type", "text/html");
+    //   res.end(`<html><body> ${data} </body></html>`);
+    // });
+
+    res.setHeader("Content-Type", "text/html");
+    res.statusCode = 200;
+    fs.createReadStream(filePath).pipe(res);
   });
-  console.log(`Request for ${fileUrl} received.`);
 });
 
 server.listen(port, hostName, () => {
