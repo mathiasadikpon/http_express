@@ -1,0 +1,12 @@
+{
+  "name": "http_express",
+  "version": "1.0.0",
+  "main": "httpServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node httpServer"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "Node HTTP & EXPRESS Module Example"
+}
