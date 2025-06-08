@@ -6,8 +6,8 @@ const port = 3000;
 const hostName = "localhost";
 
 const server = http.createServer((req, res) => {
-  console.log(`Request for ${fileUrl} received.`);
   let fileUrl = req.url;
+  console.log(`Request for ${fileUrl} received.`);
   if (fileUrl === "/") {
     fileUrl = "/index.html";
   }
@@ -37,7 +37,7 @@ const server = http.createServer((req, res) => {
     //   }
     //   res.statusCode = 200;
     //   res.setHeader("Content-Type", "text/html");
-    //   res.end(`<html><body> ${data} </body></html>`);
+    //   res.end(data);
     // });
 
     res.setHeader("Content-Type", "text/html");
