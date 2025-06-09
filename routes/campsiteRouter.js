@@ -27,7 +27,11 @@ campsiteRouter
 
 campsiteRouter
   .route("/:campsiteId")
-  .all((req, res, next) => {})
+  .all((req, res, next) => {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/plain");
+    next(); // Pass control to the next handler
+  })
   .get((req, res) => {
     res.end(
       `Will send details of the campsite: ${req.params.campsiteId} to you!`
