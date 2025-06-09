@@ -1,7 +1,7 @@
 // requires
 const express = require("express");
 const morgan = require("morgan");
-const campsiteRouter = riquire("./routes/campsiteRouter"); // Import the campsite router
+const campsiteRouter = require("./routes/campsiteRouter"); // Import the campsite router
 
 const port = 3000;
 const hostName = "localhost";
